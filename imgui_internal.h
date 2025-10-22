@@ -1429,6 +1429,9 @@ struct IMGUI_API ImGuiErrorRecoveryState
     short   SizeOfDisabledStack;
 
     ImGuiErrorRecoveryState() { memset(this, 0, sizeof(*this)); }
+
+    void SetToCurrentState();
+    void CompareWithCurrentState();
 };
 
 // Data saved for each window pushed into the stack

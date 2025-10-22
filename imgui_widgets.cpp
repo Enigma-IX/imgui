@@ -1160,10 +1160,10 @@ bool ImGui::ImageButtonEx(ImGuiID id, ImTextureRef tex_ref, const ImVec2& image_
     if (window->SkipItems)
         return false;
 
-    ImGui::KeepAliveID(id);
+    // ImGui::KeepAliveID(id); // Merge residue ? // Check TheCherno fork
 
-	const ImVec2 padding = g.Style.FramePadding;
-    const ImRect bb(window->DC.CursorPos, window->DC.CursorPos + image_size + padding * 2);
+    const ImVec2 padding = g.Style.FramePadding;
+    const ImRect bb(window->DC.CursorPos, window->DC.CursorPos + image_size + padding * 2.0f);
     ItemSize(bb);
     if (!ItemAdd(bb, id))
         return false;
