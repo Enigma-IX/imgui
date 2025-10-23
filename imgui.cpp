@@ -12444,7 +12444,11 @@ static void ImGui::BeginLayout(ImGuiID id, ImGuiLayoutType type, ImVec2 size, fl
 
 static void ImGui::EndLayout(ImGuiLayoutType type)
 {
+
     ImGuiWindow* window = GetCurrentWindow();
+    (void)window; // to validate null_exemple CI/CD
+    (void)type; // to validate null_exemple CI/CD
+
     IM_ASSERT(window->DC.CurrentLayout);
     IM_ASSERT(window->DC.CurrentLayout->Type == type);
 
@@ -12605,6 +12609,8 @@ static void ImGui::PushLayout(ImGuiLayout* layout)
 static void ImGui::PopLayout(ImGuiLayout* layout)
 {
     ImGuiWindow* window = GetCurrentWindow();
+    (void)window; // to validate null_exemple CI/CD
+    (void)layout; // to validate null_exemple CI/CD
 
     IM_ASSERT(!window->DC.LayoutStack.empty());
     IM_ASSERT(window->DC.LayoutStack.back() == layout);
@@ -13043,6 +13049,8 @@ void ImGui::SuspendLayout()
 void ImGui::ResumeLayout()
 {
     ImGuiWindow* window = GetCurrentWindow();
+    (void)window; // to validate null_exemple CI/CD
+
     IM_ASSERT(!window->DC.CurrentLayout);
     IM_ASSERT(!window->DC.LayoutStack.empty());
     PopLayout(NULL);
